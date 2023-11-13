@@ -1,0 +1,159 @@
+openapi: 3.0.0
+info:
+  title: Prices API
+  description: Technical test
+  version: 1.0.0
+
+paths:
+  /prices:
+    get:
+      summary: Returns price.
+      description: Returns price of a product between dates.
+      tags:
+        - prices
+      operationId: getPrice
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: brandId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            format: 'date-time'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricesResponseDTO'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDTO'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDTO'
+    post:
+      summary: Create new price list.
+      description: Create new price list.
+      tags:
+        - prices
+      operationId: createPrice
+      requestBody:
+        description: Price list content
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PricesDTO'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricesDTO'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDTO'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDTO'
+
+components:
+  schemas:
+    PricesResponseDTO:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        priceList:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: 'date-time'
+        endDate:
+          type: string
+          format: 'date-time'
+        price:
+          type: number
+          format: double
+        curr:
+          type: string
+          format: double
+    ErrorResponseDTO:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+    PricesDTO:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        priceList:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: 'date-time'
+        endDate:
+          type: string
+          format: 'date-time'
+        price:
+          type: number
+          format: double
+        curr:
+          type: string
+          format: double
+        priority:
+          type: integer
+          format: int64
+      required:
+        - productId
+        - brandId
+        - startDate
+        - endDate
+        - price
+        - curr
+        - priority
