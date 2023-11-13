@@ -1,55 +1,47 @@
 package com.iot.technicaltest.integration;
 
-import com.iot.technicaltest.application.exceptions.PriceNotFoundException;
+import com.iot.technicaltest.BootApplication;
+import com.iot.technicaltest.apirest.api.PricesResponseDTO;
+import com.iot.technicaltest.application.services.PricesUseCaseService;
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.function.Executable;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.testcontainers.containers.GenericContainer;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpMethod;
+import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.containers.MariaDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@WebMvcTest
-@ExtendWith(SpringExtension.class)
+@Transactional
 public class IntegrationTest {
 
-
     @Container
-    private static final GenericContainer<?> h2Container = new GenericContainer<>("h2:latest");
+    private static final MariaDBContainer<?> database = new MariaDBContainer<>("mariadb:10.6");
 
-    @BeforeAll
-    static void beforeAll() {
-        h2Container.start();
+    @Autowired
+    TestRestTemplate restTemplate;
+
+    @Test
+    @SneakyThrows
+    @DisplayName("Test Connection stablished")
+    void connectionEstablished() {
+        assertEquals(database.isCreated(),true);
+        assertEquals(database.isRunning(),true);
     }
-
-    @AfterAll
-    static void afterAll() {
-        h2Container.stop();
-    }
-
 
     @Test
     @SneakyThrows
     @DisplayName("Test getPrice throw PriceNotFoundException")
     void testGetPriceThrowPNF(){
+        String baseUrl = "/api/v1/prices?productId=35455&brandId=1&date=2020-06-14T16:00:00";
+        var response = restTemplate.exchange(baseUrl, HttpMethod.GET,null, PricesResponseDTO.class);
         assertEquals(1,1);
     }
 
