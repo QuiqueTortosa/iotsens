@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.transaction.annotation.Transactional;
-import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class IntegrationTest {
 
     @Container
-    private static final MariaDBContainer<?> database = new MariaDBContainer<>("mariadb:10.6");
+    private static final PostgreSQLContainer<?> database = new PostgreSQLContainer<>("postgres:16.0");
 
     @Autowired
     TestRestTemplate restTemplate;

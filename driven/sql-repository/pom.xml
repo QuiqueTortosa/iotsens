@@ -13,7 +13,7 @@
 	<name>sql-repository</name>
 	<properties>
 		<spring.data.jpa.version>3.1.4</spring.data.jpa.version>
-		<h2.version>2.2.220</h2.version>
+		<postgresql.version>42.6.0</postgresql.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,9 +27,9 @@
 			<version>${spring.data.jpa.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.iot.technical-test</groupId>
