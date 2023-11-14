@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * PricesResponseDTO
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-11-14T09:44:51.089387700+01:00[Europe/Madrid]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-11-14T22:43:57.372404400+01:00[Europe/Madrid]")
 
 public class PricesResponseDTO   {
   @JsonProperty("productId")
@@ -24,7 +24,7 @@ public class PricesResponseDTO   {
   private Long brandId = null;
 
   @JsonProperty("priceList")
-  private Long priceList = null;
+  private Integer priceList = null;
 
   @JsonProperty("startDate")
   private LocalDateTime startDate = null;
@@ -78,7 +78,7 @@ public class PricesResponseDTO   {
     this.brandId = brandId;
   }
 
-  public PricesResponseDTO priceList(Long priceList) {
+  public PricesResponseDTO priceList(Integer priceList) {
     this.priceList = priceList;
     return this;
   }
@@ -90,11 +90,11 @@ public class PricesResponseDTO   {
   @ApiModelProperty(value = "")
 
 
-  public Long getPriceList() {
+  public Integer getPriceList() {
     return priceList;
   }
 
-  public void setPriceList(Long priceList) {
+  public void setPriceList(Integer priceList) {
     this.priceList = priceList;
   }
 

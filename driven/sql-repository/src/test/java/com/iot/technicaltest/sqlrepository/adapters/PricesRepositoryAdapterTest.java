@@ -70,7 +70,7 @@ public class PricesRepositoryAdapterTest {
                 .willReturn(PricesRepositoryUtils.getPrice());
 
         var result = adapter.createPrice(PricesRepositoryUtils.getPrice());
-        assertEquals(result.getPriceList(),1L);
+        assertEquals(result.getPriceList(),1);
         assertEquals(result.getBrandId(),1L);
         assertEquals(result.getProductId(),35455L);
         assertEquals(result.getStartDate(),LocalDateTime.of(2020,6,14,0,0,0));

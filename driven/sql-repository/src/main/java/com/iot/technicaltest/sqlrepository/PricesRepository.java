@@ -12,7 +12,7 @@ import java.util.Currency;
 import java.util.List;
 import java.util.Optional;
 
-public interface PricesRepository extends CrudRepository<PricesEntity, Long> {
+public interface PricesRepository extends CrudRepository<PricesEntity, Integer> {
 
     @Query("SELECT p FROM PricesEntity p WHERE p.productId = :productId  AND p.brandId = :brandId AND p.startDate <= :date AND p.endDate >= :date")
     List<PricesEntity> findPrices(@Param("productId")Long productId, @Param("brandId")Long brandId, @Param("date")LocalDateTime date);

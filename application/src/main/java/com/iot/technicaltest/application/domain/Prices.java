@@ -17,7 +17,7 @@ public class Prices {
     private Long brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Long priceList;
+    private Integer priceList;
     private Long productId;
     private Long priority;
     private Double price;

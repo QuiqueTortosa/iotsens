@@ -102,7 +102,7 @@ components:
           format: int64
         priceList:
           type: integer
-          format: int64
+          format: int8
         startDate:
           type: string
           format: 'date-time'
@@ -133,7 +133,7 @@ components:
           format: int64
         priceList:
           type: integer
-          format: int64
+          format: int8
         startDate:
           type: string
           format: 'date-time'
