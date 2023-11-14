@@ -30,7 +30,7 @@ public class PricesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "price_list")
-    private Long priceList;
+    private Integer priceList;
 
     @Column(name = "product_id")
     private Long productId;

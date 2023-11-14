@@ -1,18 +1,20 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/prices
+    url: jdbc:postgresql://localhost:5432/
     username: root
     password: root
     driver-class-name: org.postgresql.Driver
-    initialization-mode: always
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    defer-datasource-initialization: true
     hibernate:
-      default_schema: prices
-      ddl-auto: create
-  sql:
-    init:
-      mode: always
+      ddl-auto: validate
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+flyway:
+  url: jdbc:postgresql://localhost:5432/
+  user: root
+  password: root
+  schemas: prices
 
 
