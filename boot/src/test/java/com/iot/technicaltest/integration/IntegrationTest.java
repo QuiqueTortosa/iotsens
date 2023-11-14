@@ -5,8 +5,6 @@ import com.iot.technicaltest.BootApplication;
 import com.iot.technicaltest.apirest.api.PricesDTO;
 import com.iot.technicaltest.apirest.api.PricesResponseDTO;
 
-import com.iot.technicaltest.application.constants.ErrorCodes;
-import com.iot.technicaltest.application.constants.ErrorMessages;
 import com.iot.technicaltest.application.exceptions.PriceNotFoundException;
 import com.iot.technicaltest.config.ContainersEnviorment;
 import com.iot.technicaltest.sqlrepository.PricesRepository;
@@ -56,14 +54,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.pricesDTO.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.pricesDTO.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.pricesDTO.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.pricesDTO.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.pricesDTO.getPriority(),res.getBody().getPriority());
-        assertEquals(IntegrationTestUtils.pricesDTO.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.pricesDTO.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.priceListInsertFive,res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.pricesDTOResponse,res.getBody());
     }
 
     @Test
@@ -91,13 +82,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesResponseDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getPriceList(),res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.getPricesResponseOne,res.getBody());
     }
 
     @Test
@@ -111,13 +96,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesResponseDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseTwo.getPriceList(),res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.getPricesResponseTwo,res.getBody());
     }
 
     @Test
@@ -131,13 +110,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesResponseDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseOne.getPriceList(),res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.getPricesResponseOne,res.getBody());
     }
 
     @Test
@@ -151,13 +124,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesResponseDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseThree.getPriceList(),res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.getPricesResponseThree,res.getBody());
     }
 
     @Test
@@ -171,13 +138,7 @@ public class IntegrationTest extends ContainersEnviorment {
                 PricesResponseDTO.class
         );
         assertEquals(HttpStatus.OK,res.getStatusCode());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getProductId(),res.getBody().getProductId());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getBrandId(),res.getBody().getBrandId());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getPrice(),res.getBody().getPrice());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getCurr(),res.getBody().getCurr());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getStartDate(),res.getBody().getStartDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getEndDate(),res.getBody().getEndDate());
-        assertEquals(IntegrationTestUtils.getPricesResponseFour.getPriceList(),res.getBody().getPriceList());
+        assertEquals(IntegrationTestUtils.getPricesResponseFour,res.getBody());
     }
     @Test
     @SneakyThrows

@@ -65,6 +65,16 @@ public class IntegrationTestUtils {
             .curr("EUR")
             .priority(2L);
 
+    public final static PricesDTO pricesDTOResponse = new PricesDTO()
+            .brandId(2L)
+            .startDate(LocalDateTime.of(2023, 11, 14, 0, 0, 0))
+            .endDate(LocalDateTime.of(2023, 11, 15, 23, 59, 59))
+            .productId(1411L)
+            .priceList(5)
+            .price(50.50)
+            .curr("EUR")
+            .priority(2L);
+
     public final static PricesDTO getPricesDTOIncomplete = new PricesDTO()
                 .brandId(1L)
                 .startDate(LocalDateTime.of(2023,12,20,10,10,10))
