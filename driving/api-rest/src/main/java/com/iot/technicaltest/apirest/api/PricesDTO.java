@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * PricesDTO
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-11-14T23:49:51.699279900+01:00[Europe/Madrid]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-11-15T22:20:03.404015800+01:00[Europe/Madrid]")
 
 public class PricesDTO   {
   @JsonProperty("productId")

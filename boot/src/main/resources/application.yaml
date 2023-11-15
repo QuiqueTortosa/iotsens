@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/
+    url: jdbc:postgresql://localhost:5432/prices
     username: root
     password: root
     driver-class-name: org.postgresql.Driver
@@ -12,7 +12,7 @@ spring:
     locations: classpath:db/migration
     enabled: true
 flyway:
-  url: jdbc:postgresql://localhost:5432/
+  url: jdbc:postgresql://localhost:5432/prices
   user: root
   password: root
   schemas: prices

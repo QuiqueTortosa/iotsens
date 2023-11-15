@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB:
+      POSTGRES_DB: prices
     ports:
       - "5432:5432"
     volumes:
@@ -19,7 +19,7 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/prices
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
