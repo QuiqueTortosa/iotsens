@@ -13,11 +13,11 @@ Estas pruebas también se encuentran en los tests de integración en la carpeta 
 
 # Tecnologías empleadas
 
-Se ha empleado Java 17 y Spring Boot 2.7.14 debido a que son las versiones con las que más he trabajado.
+Se ha empleado Java 17 y Spring Boot 2.7.14 debido a su estabilidad y la compatibilidad con las dependencias.
 
 Para la reducción de código, se han utilizado Lombok y MapStruct.
 
-Como base de datos relacional, se ha empleado PostgreSQL debido a que es muy fácil trabajar con ella localmente.
+Como base de datos relacional, se ha empleado PostgreSQL debido a su madurez y robustez.
 
 Flyway ha sido utilizado para la inicialización de datos. Esta tecnología permite migrar y mantener un historial de los cambios en la base de datos.
 
@@ -40,7 +40,7 @@ En la carpeta driven se han implementado los puertos de salida, en este caso, la
 
 En la carpeta application se encuentra toda la lógica de negocio.
 
-En la carpeta boot se encuentran la configuración y el arranque de la aplicación.
+En la carpeta boot se encuentran las properties y el arranque de la aplicación.
 
 Los tests unitarios están en las carpetas driving, driven y application, mientras que los tests de integración están en la carpeta boot.
 
